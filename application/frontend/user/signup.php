@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="">
+    <form method="POST" action="../../backend/user/signup.php">
         <label for="username">Username</label>
         <input type="text" name="username" id="username"><br>
         <label for="password">Password</label>
@@ -21,6 +21,7 @@
         <input type="text" id="no_hp" name="no_hp"><br>
         <label for="alamat">Alamat</label>
         <textarea name="alamat" id="alamat" cols="30" rows="10"></textarea>
+        <input type="submit" value="Simpan">
     </form>
 
 </body>
