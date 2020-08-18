@@ -14,26 +14,40 @@ $email = $_POST["email"];
 $validEmail = preg_match("/^\S+@\S+\.\S+$/", $email);
 $validPassword = strlen(trim($password));
 
-// Check validasi
-if($validEmail < 0 || $validPassword < 6 ){
-
-    // Redirect ke halaman signup jika gagal
-    echo "<script>window.location.href = '../../frontend/user/signup.php?pesan=gagalvaid' </script>";
-
-}else {
-    
-    // process menyimpan data
-    $simpan = mysqli_query($koneksi, "INSERT INTO member (username, `password`, nama, email, no_hp, alamat) VAlUES ('$username', '$password', '$nama', '$email', '$no_hp', '$alamat') ");
-
-    if($simpan){
-        // Redirect ke halaman login
-         echo "<script>window.location.href = '../../frontend/user/login.php' </script>";
-    }else {
-        // Redirect ke halaman signup
-        echo "<script>window.location.href = '../../frontend/user/signup.php?pesan=gagaladd' </script>";
-    }
-
+$cekEmail = mysqli_query($koneksi, "SELECT email FROM `member` where email = '$email' ");
+if($cekEmail->num_rows !== 0 ){
+    echo "<script>window.location.href = '../../frontend/user/signup.php?kodeError=2' </script>";
+   
 }
+
+// Jika email tersedia
+else {
+     // hash password
+    $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Check validasi
+    if($validEmail < 0 || $validPassword <= 6 ){
+        // Redirect ke halaman signup jika gagal
+        echo "<script>window.location.href = '../../frontend/user/signup.php?kodeError=6' </script>";
+
+    }
+    else {
+        // process menyimpan data
+        $simpan = mysqli_query($koneksi, "INSERT INTO member (username, `password`, nama, email, no_hp, alamat) VAlUES ('$username', '$hashPassword', '$nama', '$email', '$no_hp', '$alamat') ");
+
+        if($simpan){
+            // Redirect ke halaman login
+            echo "<script>window.location.href = '../../frontend/user/login.php' </script>";
+        }
+        else {
+            // Redirect ke halaman signup
+            echo "<script>window.location.href = '../../frontend/user/signup.php?kodeError=0' </script>";
+        }
+    }
+}
+// kodeError
+// 2 = email sudah terdaftar
+// 0 = bad request
 
 
 
