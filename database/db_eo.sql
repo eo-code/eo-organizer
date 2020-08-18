@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2020 at 08:46 AM
+-- Generation Time: Aug 18, 2020 at 08:59 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -35,7 +35,8 @@ CREATE TABLE `booking` (
   `email` varchar(255) NOT NULL,
   `id_product` varchar(255) NOT NULL,
   `keterangan` text NOT NULL,
-  `total_harga` int(100) NOT NULL
+  `total_harga` int(100) NOT NULL,
+  `Status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
