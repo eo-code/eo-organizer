@@ -1,0 +1,72 @@
+.mt {
+  margin-top: 10px !important;
+}
+
+.mt-5 {
+  margin-top: 5px !important;
+}
+
+.mt-20 {
+  margin-top: 20px !important;
+}
+
+.mt-2 {
+  margin-top: 1rem !important;
+}
+
+.mt-15 {
+  margin-top: 15px !important;
+}
+
+.mb {
+  margin-bottom: 10px !important;
+}
+
+.mb-5 {
+  margin-bottom: 5px !important;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.mb-15 {
+  margin-bottom: 15px !important;
+}
+
+.mr-10 {
+  margin-right: 10px !important;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.pointer:hover {
+  cursor: pointer !important;
+}
+
+.pl-20 {
+  padding-left: 20px !important;
+}
+
+.ml-20 {
+  margin-left: 20px !important;
+}
+
+.meta {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.small-txt {
+  font-size: 12px !important;
+}
+
+@media (min-width: 764px) {
+  .ui.footer.form-page {
+    /* Increased specificity for SO snippet priority */
+    position: absolute;
+    bottom: -20vh;
+    width: 100%;
+  }
+}
