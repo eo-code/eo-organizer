@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('../../../assets/font/ProductSans-Regular.woff') format('woff');
+}
+
+.header {
+  width: 100%;
+  height: 90px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+  font-family: 'Product Sans';
+}
+
+.header .logo {
+  width: 40%;
+  height: 90px;
+}
+
+.header .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu div {
+  padding: 0 .7em 0;
+}
+
+.menu a {
+  padding: .7em;
+  text-transform: uppercase;
+  color: #8675a9;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  border-radius: 3px;
+}
+
+/* .menu a::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background-color: #8675a9;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+} */
+
+.menu a:hover {
+  text-decoration: none;
+  color: #8675a9;
+  background-color: rgba(134, 117, 169, 0.3);
+}
+
+/* .menu a:hover::after {
+  width: 100%;
+  left: 0;
+} */
+
+.menu p {
+  color: #8675a9;
+  position: relative;
+}
+
+.menu p::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 33%;
+  height: 1px;
+  background-color: #8675a9;
+}
+
+.menu .dropdown-menu a {
+  text-transform: none;
+
+}
+
+/* Header Close Style  */
+
+.hero {
+  width: 100%;
+  height: 590px;
+  background-image: url('../../../assets/img/hero-bg.png');
+  background-size: cover;
+  position: relative;
+  font-family: 'Product Sans';
+}
+
+.hero .shape-blur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 63%;
+  height: 100%;
+  background-color: rgba(134, 117, 169, 0.7);
+  filter: blur(5px);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 32% 100%);
+}
+
+.hero .container {
+  position: relative;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.hero .container h1 {
+  position: absolute;
+  top: 250px;
+  right: 0;
+  font-size: 3em;
+}
+
+.hero .container h2 {
+  position: absolute;
+  top: 350px;
+  right: 0;
+  font-size: 2em;
+}
+
+/* Close Hero */
+
+.mini-produk {
+  width: 100%;
+  height: auto;
+  color: #8675a9;
+  font-family: 'Product Sans';
+}
+
+.mini-produk .wrap-card {
+  width: 100%;
+  height: auto;
+}
+
+.mini-produk .wrap-card .card-product {
+  width: 100%;
+  height: 230px;
+  border-radius: 8px;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mini-produk .wrap-card .card-product .img {
+  width: 100%;
+  height: 60%;
+  background-color: #ffd5cd;
+}
+
+.mini-produk .btn-more a {
+  width: 30%;
+  height: 50px;
+  cursor: pointer;
+}
+
+.mini-produk .btn-more button {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  background: #ffffff;
+  color: #8675a9;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  box-shadow: 0 0 6px 2px rgba(134, 117, 169, 0.5);
+  cursor: pointer;
+}
+
+/* Mini Produk Close Style */
+
+.contact {
+  height: auto;
+  color: #8675a9;
+  font-family: 'Product Sans';
+  position: relative;
+}
+
+.contact .shape {
+  position: absolute;
+  top: 86px;
+  right: 0;
+  width: 120px;
+  height: 490px;
+  background-color: #8675a9;
+  z-index: -3;
+}
+
+.contact .content-contact .left {
+  width: 45%;
+  height: 100%;
+}
+
+.contact .content-contact .left input:focus,
+.contact .content-contact .left textarea:focus {
+  border: 1px solid #8675a9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 1px 4px rgba(134, 117, 169, 0.5);
+  outline: 0 none;
+}
+
+.contact .content-contact .left button {
+  height: 40px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #8675a9;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  box-shadow: 0 0 6px 2px rgba(134, 117, 169, 0.5);
+  cursor: pointer;
+}
+
+.contact .content-contact .right {
+  width: 60%;
+  height: 490px;
+  background-color: #8675a9;
+  color: #ffffff;
+  border-radius: 10px 0 0 10px;
+}
+
+.contact .content-contact .right .info {
+  height: 60px;
+  position: relative;
+}
+
+.contact .content-contact .right .info:nth-child(1n+2) {
+  margin-top: 2em;
+}
+
+.contact .content-contact .right .info .circle {
+  width: 60px;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #8675a9;
+  font-size: 1.3em;
+}
+
+.contact .content-contact .right .info .name {
+  width: 80%;
+  height: 50px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: #ffffff;
+  color: #8675a9;
+  font-weight: bold;
+  font-size: 1.3em;
+  position: absolute;
+  left: 40px;
+}
+
+/* Contact Close Style */
+
+.footer {
+  font-family: 'Product Sans';
+  height: 50px;
+  color: #ffffff;
+  background-color: #8675a9;
+}
