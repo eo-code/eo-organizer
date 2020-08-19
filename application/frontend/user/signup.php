@@ -8,19 +8,20 @@
 </head>
 
 <body>
-    <form action="">
-        <label for="">Username</label>
-        <input type="text" name="username"><br>
-        <label for="">Password</label>
-        <input type="text" name="password"><br>
-        <label for="">Nama</label>
-        <input type="text" name="nama"><br>
-        <label for="">E-Mail</label>
-        <input type="text" name="email"><br>
-        <label for="">No HP</label>
-        <input type="text" name="no_hp"><br>
-        <label for="">Alamat</label>
-        <textarea name="alamat" id="" cols="30" rows="10"></textarea>
+    <form method="POST" action="../../backend/user/signup.php">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username"><br>
+        <label for="password">Password</label>
+        <input type="text" id="password" name="password"><br>
+        <label for="nama">Nama</label>
+        <input type="text" id="nama" name="nama"><br>
+        <label for="email">E-Mail</label>
+        <input type="text" id="email" name="email"><br>
+        <label for="no_hp">No HP</label>
+        <input type="text" id="no_hp" name="no_hp"><br>
+        <label for="alamat">Alamat</label>
+        <textarea name="alamat" id="alamat" cols="30" rows="10"></textarea>
+        <input type="submit" value="Simpan">
     </form>
 
 </body>
