@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('../../../assets/font/ProductSans-Regular.woff') format('woff');
+}
+
+.keranjang {
+  font-family: 'Product Sans';
+  color: #8675a9;
+}
+
+.keranjang .wrap-card-keranjang .card-keranjang {
+  height: 200px;
+  background-color: #8675a9;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.keranjang .wrap-card-keranjang .card-keranjang .right {
+  width: 50%;
+  height: 100%;
+}
+
+.keranjang .wrap-card-keranjang .card-keranjang .left {
+  width: 40%;
+  height: 100%;
+}
+
+.keranjang .wrap-card-keranjang .card-keranjang .left .wrap-img {
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+  border-radius: 8px 0 0 8px;
+}
+
+.keranjang .wrap-card-keranjang .card-keranjang .wrap-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bottom {
+  font-family: 'Product Sans';
+  color: #ffffff;
+  height: auto;
+  background-color: #8675a9;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.bottom h6 {
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.bottom .right {
+  width: 15%;
+}
+
+.bottom .right button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #8675a9;
+  font-weight: bold;
+}

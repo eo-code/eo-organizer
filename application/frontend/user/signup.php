@@ -16,7 +16,7 @@
       <div class="box-sign w-100 d-flex">
         <div class="left d-flex align-items-center justify-content-center flex-column">
           <div class="logo mb-4"></div>
-          <h3>Paper Flower Backdrop Decoration</h3>
+          <h3 class="text-center">Paper Flower Backdrop Decoration</h3>
         </div>
         <div class="right d-flex flex-column p-4">
           <h2 class="mb-3">Sign Up</h2>

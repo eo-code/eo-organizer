@@ -21,6 +21,6 @@
 </header>
 <script src="../../../assets/bootstrap/assets/js/vendor/popper.min.js"></script>
 <script src="../../../assets/jquery/jquery.min.js"></script>
-<script src="../../../assets/bootstrap/js/bootstrap.js">
+<script src="../../../assets/bootstrap/js/bootstrap.js"></script>
 <script src="../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js">
 </script>

@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,28 +6,28 @@
 
 @font-face {
   font-family: 'Product Sans';
-  url: ('./ProductSans-Regular.woff') format('woff');
+  url: ('../../../assets/font/ProductSans-Regular.woff') format('woff');
 }
 
-.galeri{
+.galeri {
   font-family: 'Product Sans';
   color: #8675a9;
   font-weight: bold;
 }
 
-.galeri .row{
+.galeri .row {
   display: flex;
   flex-wrap: wrap;
   padding: 0 4px;
 }
 
 
-.galeri .row .column{
+.galeri .row .column {
   flex: 25%;
   padding: 0 4px;
 }
 
-.galeri .row .column img{
+.galeri .row .column img {
   width: 100%;
   margin-top: 8px;
   vertical-align: middle;

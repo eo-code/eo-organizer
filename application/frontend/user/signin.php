@@ -13,10 +13,10 @@
 <body>
   <div class="sign d-flex justify-content-center align-items-center w-100">
     <div class="container">
-      <div class="box-sign w-100 d-flex">
+      <div class="box-sign w-100 d-flex p-4">
         <div class="left d-flex align-items-center justify-content-center flex-column">
           <div class="logo mb-4"></div>
-          <h3>Paper Flower Backdrop Decoration</h3>
+          <h3 class="text-center">Paper Flower Backdrop Decoration</h3>
         </div>
         <div class="right d-flex flex-column p-4">
           <h2 class="mb-5">Sign In</h2>
