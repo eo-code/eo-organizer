@@ -28,7 +28,7 @@ if(mysqli_num_rows($checkEmail) === 0){
     if($checkPassword){
         setcookie("login", "sudah_login", time() + (3600 * 24), '/' );
         setcookie("username", $email, time() + (3600 * 24), '/' );
-        header("Location:../../frontend/user/beranda.php");
+        header("Location:../../frontend/user/home.php");
 
     }else {
         echo "<script>window.location.href='../../frontend/user/signin.php?kodeError=0'</script>";
