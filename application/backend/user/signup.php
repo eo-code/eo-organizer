@@ -6,7 +6,7 @@ include "../koneksi.php";
 $username = $_POST["username"];
 $password = $_POST["password"];
 $nama = $_POST["nama"];
-$alamat = $_POST["alamat"];
+// $alamat = $_POST["alamat"];
 $no_hp = $_POST["no_hp"];
 $email = $_POST["email"];
 
@@ -22,22 +22,23 @@ if($cekEmail->num_rows !== 0 ){
 
 // Jika email tersedia
 else {
-     // hash password
-    $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+    
 
     // Check validasi
-    if($validEmail < 0 || $validPassword <= 6 ){
+    if($validEmail < 0 || $validPassword < 6 ){
         // Redirect ke halaman signup jika gagal
         echo "<script>window.location.href = '../../frontend/user/signup.php?kodeError=6' </script>";
 
     }
     else {
+         // hash password
+        $hashPassword = password_hash($password, PASSWORD_DEFAULT);
         // process menyimpan data
-        $simpan = mysqli_query($koneksi, "INSERT INTO member (username, `password`, nama, email, no_hp, alamat) VAlUES ('$username', '$hashPassword', '$nama', '$email', '$no_hp', '$alamat') ");
+        $simpan = mysqli_query($koneksi, "INSERT INTO member (username, `password`, nama, email, no_hp) VAlUES ('$username', '$hashPassword', '$nama', '$email', '$no_hp') ");
 
         if($simpan){
             // Redirect ke halaman login
-            echo "<script>window.location.href = '../../frontend/user/login.php' </script>";
+            echo "<script>window.location.href = '../../frontend/user/signin.php' </script>";
         }
         else {
             // Redirect ke halaman signup
