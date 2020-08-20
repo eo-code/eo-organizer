@@ -14,11 +14,16 @@
   color: #8675a9;
 }
 
+.keranjang .wrap-card-keranjang {
+  padding-bottom: 6em;
+}
+
 .keranjang .wrap-card-keranjang .card-keranjang {
   height: 200px;
   background-color: #8675a9;
   color: #ffffff;
   border-radius: 8px;
+  margin-top: 2em;
 }
 
 .keranjang .wrap-card-keranjang .card-keranjang .right {
