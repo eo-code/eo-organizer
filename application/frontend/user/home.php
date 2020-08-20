@@ -1,7 +1,34 @@
+<?php
+
+function url(){
+    if(isset($_SERVER['HTTPS'])){
+        $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+    }
+    else{
+        $protocol = 'http';
+    }
+    return $protocol . "://" . $_SERVER['HTTP_HOST'];
+}
+
+include "../../backend/koneksi.php";
+
+if(isset($_COOKIE["email"]) && $_COOKIE["login"] == "sudah_login"){
+
+  // Get prodouk limit 3
+  $produk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY RAND() LIMIT 3 ");
+
+}else{
+  // Redirect halaman login
+  header("Location: ./signin.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style/./style.css">
@@ -28,24 +55,19 @@
       <h2>Produk Kami</h2>
 
       <div class="wrap-card row mt-5">
+
+      <?php
+      while($listProduk = mysqli_fetch_array($produk)):
+      ?>
+
         <div class="col-md-4">
           <div class="card-product">
             <div class="img"></div>
-            <h4 class="pl-4 pt-4">Nama Produk</h4>
+            <h4 class="pl-4 pt-4"><?= $listProduk["nama_produk"];?></h4>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card-product">
-            <div class="img"></div>
-            <h4 class="pl-4 pt-4">Nama Produk</h4>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card-product">
-            <div class="img"></div>
-            <h4 class="pl-4 pt-4">Nama Produk</h4>
-          </div>
-        </div>
+
+      <?php endwhile; ?>
 
         <div class="btn-more w-100 d-flex justify-content-center mt-5">
           <a href="" class="text-center">
@@ -61,26 +83,28 @@
     <div class="shape"></div>
     <div class="container">
       <h2>Kontak Kami</h2>
+      <form action="../../backend/user/pengirimEmail.php" method="post">
       <div class="content-contact d-flex justify-content-between mt-5">
         <div class="left mr-5">
           <div class="form-group">
             <label for="">Name</label>
-            <input type="text" class="form-control" placeholder="Enter Your Name">
+            <input type="text" class="form-control" name="nama" placeholder="Enter Your Name">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" placeholder="Enter email">
+            <input type="email" class="form-control" name="email" placeholder="Enter email">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Telephone Number</label>
-            <input type="email" class="form-control" placeholder="Enter Telephone Number">
+            <input type="tel" name="no_hp" class="form-control" placeholder="Enter Telephone Number">
           </div>
           <div class="form-group">
             <label for="">Your Message</label>
             <textarea class="form-control" name="message" id="" cols="30" rows="5"></textarea>
           </div>
 
-          <button class="w-100 mt-2">Send Message</button>
+          <button class="w-100 mt-2" type="submit">Send Message</button>
+          </form>
         </div>
         <div class="right p-4">
           <h4>Contact Details</h4>
