@@ -28,7 +28,22 @@ if(isset($_COOKIE["email"]) && $_COOKIE["login"] == "sudah_login"){
   </head>
   <body>
     <?php include './layout/header.php'; ?>
-
+    <div class="btn-fix1">
+      <a href="./keranjang.php">
+        <div class="circle d-flex justify-content-center align-items-center">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="name d-flex justify-content-center align-items-center">Keranjang</div>
+      </a>
+    </div>
+    <div class="btn-fix2">
+      <a href="./signout.php">
+        <div class="circle d-flex justify-content-center align-items-center">
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
+        <div class="name d-flex justify-content-center align-items-center">Sign Out</div>
+      </a>
+    </div>
     <div class="galeri mt-5 w-100">
       <div class="container">
         <h1>Galeri</h4>
