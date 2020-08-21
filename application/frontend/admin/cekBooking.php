@@ -9,7 +9,7 @@
     
     <?php 
         include '../../backend/config/koneksi.php';
-        $tanggalBooking = $_GET["q"];
+        // $tanggalBooking = $_GET["q"];
         $date = date('-m-d');
         // $tanggalBooking .= $date ;
 
