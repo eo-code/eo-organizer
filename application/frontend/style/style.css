@@ -222,7 +222,12 @@
 .mini-produk .wrap-card .card-product .img {
   width: 100%;
   height: 60%;
-  background-color: #ffd5cd;
+}
+
+.mini-produk .wrap-card .card-product .img img {
+  height: 100%;
+  object-fit: cover;
+  background-position: top;
 }
 
 .mini-produk .btn-more a {
