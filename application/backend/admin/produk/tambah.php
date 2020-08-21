@@ -5,11 +5,13 @@ $harga = $_POST['harga'];
 $deskripsi = $_POST['deskripsi'];
 $kategori = $_POST['kategori'];
 //file gambar dari form tambah barang
-$gambar = $_FILES['gambar']['name'];
+$gambar_awal = $_FILES['gambar']['name'];
 //ekstensi atau format gambar (png,jpg,jpeg)
-$x = explode('.', $gambar);
+$x = explode('.', $gambar_awal);
 $ekstensi = strtolower(end($x));
 $ekstensi_diperbolehkan = array('png', 'jpg', 'jpeg');
+$awal = substr($gambar_awal, 0, -4);
+$gambar = $awal . '_' . round(microtime(true)) . '.' . $ekstensi;
 //file tmp
 $file_tmp = $_FILES['gambar']['tmp_name'];
 //
