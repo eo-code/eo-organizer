@@ -98,7 +98,7 @@ if(isset($_COOKIE["email"]) && $_COOKIE["login"] == "sudah_login"){
 
   <div class="contact mt-5 w-100">
     <div class="shape"></div>
-    <div class="container">
+    <div class="container" id="kontak">
       <h2>Kontak Kami</h2>
       <form action="../../backend/user/pengirimEmail.php" method="post">
       <div class="content-contact d-flex justify-content-between mt-5">

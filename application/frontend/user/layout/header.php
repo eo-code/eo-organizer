@@ -15,7 +15,7 @@
 
       <a href="./galeri.php">Galeri</a>
       <a href="./tentang.php">Tentang</a>
-      <a href="">Kontak</a>
+      <a href="./home.php#kontak">Kontak</a>
     </div>
   </div>
 </header>
