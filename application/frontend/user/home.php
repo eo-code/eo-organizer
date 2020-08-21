@@ -15,20 +15,20 @@
 
   <?php include './layout/header.php'; ?>
 
-  <div class="signup">
-    <a href="./signup.php">
+  <div class="btn-fix1">
+    <a href="./keranjang.php">
       <div class="circle d-flex justify-content-center align-items-center">
-        <i class="fas fa-user-plus"></i>
+        <i class="fas fa-shopping-cart"></i>
       </div>
-      <div class="name d-flex justify-content-center align-items-center">Sign Up</div>
+      <div class="name d-flex justify-content-center align-items-center">Keranjang</div>
     </a>
   </div>
-  <div class="signin">
-    <a href="./signin.php">
+  <div class="btn-fix2">
+    <a href="./signout.php">
       <div class="circle d-flex justify-content-center align-items-center">
-        <i class="fas fa-sign-in-alt"></i>
+        <i class="fas fa-sign-out-alt"></i>
       </div>
-      <div class="name d-flex justify-content-center align-items-center">Sign In</div>
+      <div class="name d-flex justify-content-center align-items-center">Sign Out</div>
     </a>
   </div>
 
@@ -65,7 +65,7 @@
         </div>
 
         <div class="btn-more w-100 d-flex justify-content-center mt-5">
-          <a href="" class="text-center">
+          <a href="./produk.php" class="text-center">
             <button>Lihat Selengkapnya <i class="fas fa-arrow-right pl-3"></i></button>
           </a>
         </div>

@@ -103,6 +103,7 @@
   border-radius: 50% 0 0 0;
   font-weight: bold;
   font-size: 1.3em;
+  cursor: pointer;
 }
 
 .product .wrap-product .button-product button {
@@ -112,4 +113,5 @@
   color: #8675a9;
   border: none;
   cursor: pointer;
+  outline: none;
 }
