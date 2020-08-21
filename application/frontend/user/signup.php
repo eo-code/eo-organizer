@@ -20,7 +20,7 @@
         </div>
         <div class="right d-flex flex-column p-4">
           <h2 class="mb-3">Sign Up</h2>
-          <form action="" method="post">
+          <form action="../../backend/user/signup.php" method="POST">
 
             <div class="form-group">
               <label for="">Nama</label>
@@ -47,9 +47,9 @@
                 <input type="email" name="email" class="form-control">
               </div>
             </div>
-          </form>
-
-          <button class="mt-5" class="btn-signup">Sign Up</button>
+            <p class="mt-3">Apakah anda sudah punya akun? <a href="./signin.php">Sign In</a></p>
+            <button class="mt-2" type="submit" class="btn-signup">Sign Up</button>
+        </form>
         </div>
       </div>
     </div>

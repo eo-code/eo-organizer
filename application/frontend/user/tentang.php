@@ -11,18 +11,35 @@
   <body>
 
   <?php include './layout/header.php'; ?>
-
+    <div class="btn-fix1">
+      <a href="./keranjang.php">
+        <div class="circle d-flex justify-content-center align-items-center">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="name d-flex justify-content-center align-items-center">Keranjang</div>
+      </a>
+    </div>
+    <div class="btn-fix2">
+      <a href="./signout.php">
+        <div class="circle d-flex justify-content-center align-items-center">
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
+        <div class="name d-flex justify-content-center align-items-center">Sign Out</div>
+      </a>
+    </div>
+    
     <div class="tentang mt-5 w-100">
       <div class="container">
         <h3 class="text-center mb-5">The Best Your Partner For Your Event</h3>
-        <div class="content-tentang mt-5 d-flex justify-content-between">
+        <div class="content-tentang mt-5 d-flex justify-content-between pt-5">
           <div class="left">
-            <h4>Nayaaaaaa</h4>
-            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>Naya’s Arts & Craft Specialis Paper Flower</h3>
+            <p class="mt-3">
+            Naya’s Arts & Craft Specialis Paper Flower yang beralamat di SP 1 Kabupaten Sorong merupakan usaha yang berkecimpung dalam pembuatan dekorasi untuk berbagai acara. Naya’s Arts & Craft menawarkan dekorasi paper flower untuk hiasan acara spesial seperti dalam acara lamaran, akad nikah, baby shower, Aqiqah, serta acara ulang tahun. Selain untuk acara special, hiasan paper flower pada Naya’s Arts & Craft dapat juga dijadikan hiasan diberbagai ruangan contohnya di kamar, ruang tamu, ruang kelas dan lainnya.</p>
           </div>
           <div class="right">
             <div class="img">
-
+              <img src="" alt="">
             </div>
           </div>
         </div>

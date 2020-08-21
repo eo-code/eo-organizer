@@ -87,20 +87,20 @@
 /* Header Close Style  */
 
 
-.signup {
+.btn-fix1 {
   position: fixed;
   bottom: 110px;
-  right: 50px;
+  right: 30px;
   z-index: 2;
 }
 
-.signup a:hover,
-.signin a:hover {
+.btn-fix1 a:hover,
+.btn-fix2 a:hover {
   text-decoration: none;
 }
 
 
-.signup .circle {
+.btn-fix1 .circle {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -108,11 +108,11 @@
   background-color: #efbbcf;
 }
 
-.signup .circle i {
+.btn-fix1 .circle i {
   font-size: 1.3em;
 }
 
-.signup .name {
+.btn-fix1 .name {
   width: 100px;
   height: 50px;
   border-radius: 25px;
@@ -122,16 +122,17 @@
   left: -80px;
   top: 12px;
   font-weight: bold;
+  font-size: .9em;
 }
 
-.signin {
+.btn-fix2 {
   position: fixed;
   bottom: 20px;
-  right: 50px;
+  right: 30px;
   z-index: 2;
 }
 
-.signin .circle {
+.btn-fix2 .circle {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -139,16 +140,17 @@
   background-color: #efbbcf;
 }
 
-.signin .circle i {
+.btn-fix2 .circle i {
   font-size: 1.3em;
 }
 
-.signin .name {
+.btn-fix2 .name {
   width: 100px;
   height: 50px;
   border-radius: 25px;
   background-color: #efbbcf;
   color: #8675a9;
+  font-size: .9em;
   position: absolute;
   left: -80px;
   top: 12px;
@@ -338,4 +340,25 @@
 .wrap-invoice {
   font-family: 'Product Sans';
   color: #8675a9;
+}
+
+/* Modal */
+
+.modal {
+  font-family: 'Product Sans';
+  color: #8675a9;
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus {
+  border: 1px solid #8675a9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 1px 4px rgba(134, 117, 169, 0.5);
+  outline: 0 none;
+}
+
+.modal-footer button {
+  width: 20%;
+  height: 40px;
+  border-radius: 6px;
+  outline: none;
 }

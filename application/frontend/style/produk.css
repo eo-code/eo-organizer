@@ -12,6 +12,7 @@
 .product {
   font-family: 'Product Sans';
   color: #8675a9;
+  position: relative;
 }
 
 .product input:focus {
@@ -103,6 +104,7 @@
   border-radius: 50% 0 0 0;
   font-weight: bold;
   font-size: 1.3em;
+  cursor: pointer;
 }
 
 .product .wrap-product .button-product button {
@@ -112,4 +114,40 @@
   color: #8675a9;
   border: none;
   cursor: pointer;
+  outline: none;
+}
+
+.product .popup-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: -2;
+}
+
+.product .popup-success .box {
+  width: 30%;
+  height: 120px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 6px 1px rgba(134, 117, 169, 0.3);
+  animation: .3s scaleUp ease-in-out;
+}
+
+.product .popup-success .box i {
+  font-size: 2.5em;
+}
+
+.product .popup-success .box h6 {
+  font-weight: bold;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

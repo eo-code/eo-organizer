@@ -21,16 +21,17 @@
         <div class="right d-flex flex-column p-4">
           <h2 class="mb-5">Sign In</h2>
 
-          <form action="" method="post">
+          <form action="../../backend/user/signin.php" method="post">
             <div class="form-group">
-              <label for="">Username</label>
-              <input type="text" class="form-control" name="username" id="username">
+              <label for="">Email</label>
+              <input type="text" class="form-control" name="email" id="email">
             </div>
             <div class="form-group">
               <label for="">Password</label>
               <input type="password" class="form-control" name="password" id="password">
             </div>
-            <button class="mt-5">Sign In</button>
+            <p>Apakah anda belum punya akun? <a href="./signup.php">Sign Up</a></p>
+            <button class="mt-2">Sign In</button>
           </form>
 
         </div>
