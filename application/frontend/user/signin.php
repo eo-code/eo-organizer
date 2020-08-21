@@ -30,7 +30,8 @@
               <label for="">Password</label>
               <input type="password" class="form-control" name="password" id="password">
             </div>
-            <button class="mt-5">Sign In</button>
+            <p>Apakah anda belum punya akun? <a href="./signup.php">Sign Up</a></p>
+            <button class="mt-2">Sign In</button>
           </form>
 
         </div>
