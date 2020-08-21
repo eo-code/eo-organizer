@@ -11,7 +11,23 @@
   <body>
 
   <?php include './layout/header.php'; ?>
-
+    <div class="btn-fix1">
+      <a href="./keranjang.php">
+        <div class="circle d-flex justify-content-center align-items-center">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="name d-flex justify-content-center align-items-center">Keranjang</div>
+      </a>
+    </div>
+    <div class="btn-fix2">
+      <a href="./signout.php">
+        <div class="circle d-flex justify-content-center align-items-center">
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
+        <div class="name d-flex justify-content-center align-items-center">Sign Out</div>
+      </a>
+    </div>
+    
     <div class="tentang mt-5 w-100">
       <div class="container">
         <h3 class="text-center mb-5">The Best Your Partner For Your Event</h3>

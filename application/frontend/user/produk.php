@@ -13,6 +13,23 @@
   
   <?php include './layout/header.php'; ?>
 
+  <div class="btn-fix1">
+    <a href="./keranjang.php">
+      <div class="circle d-flex justify-content-center align-items-center">
+        <i class="fas fa-shopping-cart"></i>
+      </div>
+      <div class="name d-flex justify-content-center align-items-center">Keranjang</div>
+    </a>
+  </div>
+  <div class="btn-fix2">
+    <a href="./signout.php">
+      <div class="circle d-flex justify-content-center align-items-center">
+        <i class="fas fa-sign-out-alt"></i>
+      </div>
+      <div class="name d-flex justify-content-center align-items-center">Sign Out</div>
+    </a>
+  </div>
+
   <div class="product mt-5">
     <div class="container">
       <h2>Produk</h2>
@@ -21,7 +38,7 @@
         <button><i class="fa fa-search"></i></button>
       </div>
 
-      <div class="wrap-product row mt-4 pb-5">        
+      <div class="wrap-product row mt-4" style="padding-bottom: 8em">        
         <div class="col-md-3 col-6">          
           <div class="card-product">
             <div class="wrap-img">
@@ -90,11 +107,20 @@
         
       </div>
     </div>
+    <div class="popup-success d-flex justify-content-center align-items-center w-100">
+      
+    </div>
   </div>
+
 
   <script>
     const date = new Date();
     const inputDate = document.querySelector('#date');
+    const popupSuccess = document.querySelector('.popup-success');
+    let elBox = `<div class="box d-flex flex-column justify-content-center align-items-center">
+        <i class="fas fa-check-circle"></i>
+        <h6 class="mt-3">Berhasil menambahkan ke keranjang</h6>
+      </div>`;
     let buttonProduct = document.querySelectorAll('.button-product');
 
     let yearNow = date.getFullYear();
@@ -128,12 +154,27 @@
         let arrProduct = [{idProduct: id, name: productName, price: priceProduct, emailUser: email}]
         if(localStorage.getItem('dataCart') == undefined){
           localStorage.setItem('dataCart', JSON.stringify(arrProduct));
+
+          popupSuccess.style.zIndex = "2";
+          popupSuccess.innerHTML = elBox;
+
+          setTimeout(() => {
+            popupSuccess.style.zIndex = "-2";          
+            popupSuccess.innerHTML = '';
+          }, 1200);
         } else {
           let strProducts = localStorage.getItem('dataCart', JSON.stringify(arrProduct));
           let arrProducts = JSON.parse(strProducts)
           arrProducts.push({idProduct: id, name: productName, price: priceProduct, emailUser: email});
           console.log(arrProducts)
           localStorage.setItem('dataCart', JSON.stringify(arrProducts));
+          popupSuccess.style.zIndex = "2";
+          popupSuccess.innerHTML = elBox;
+
+          setTimeout(() => {
+            popupSuccess.style.zIndex = "-2";          
+            popupSuccess.innerHTML = '';
+          }, 1200);
         }
         
       })
