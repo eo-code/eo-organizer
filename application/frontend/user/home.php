@@ -15,6 +15,23 @@
 
   <?php include './layout/header.php'; ?>
 
+  <div class="signup">
+    <a href="./signup.php">
+      <div class="circle d-flex justify-content-center align-items-center">
+        <i class="fas fa-user-plus"></i>
+      </div>
+      <div class="name d-flex justify-content-center align-items-center">Sign Up</div>
+    </a>
+  </div>
+  <div class="signin">
+    <a href="./signin.php">
+      <div class="circle d-flex justify-content-center align-items-center">
+        <i class="fas fa-sign-in-alt"></i>
+      </div>
+      <div class="name d-flex justify-content-center align-items-center">Sign In</div>
+    </a>
+  </div>
+
   <div class="hero">
     <div class="shape-blur"></div>
     <div class="container">

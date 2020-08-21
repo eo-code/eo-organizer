@@ -17,7 +17,7 @@
     <div class="container">
       <h2>Produk</h2>
       <div class="date w-100 d-flex mt-4 justify-content-between align-items-center">
-        <input type="date" name="tanggal" id="tanggal" class="form-control">
+        <input type="date" name="tanggal" id="date" class="form-control">
         <button><i class="fa fa-search"></i></button>
       </div>
 
@@ -126,5 +126,18 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const date = new Date();
+    const inputDate = document.querySelector('#date');
+
+    let yearNow = date.getFullYear();
+    let monthNow = date.getMonth() < 10 ? '0' +( date.getMonth() + 1) : date.getMonth() + 1;
+    let dateNow = date.getDate();
+
+    let fullDateNow = yearNow + '-' + monthNow + '-' + dateNow
+
+    inputDate.setAttribute('min', fullDateNow);
+  </script>
 </body>
 </html>

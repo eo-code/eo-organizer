@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('../../../assets/font/ProductSans-Regular.woff') format('woff');
+}
+
+.hero-daftar-booking {
+  font-family: 'Product Sans';
+  height: 300px;
+  color: #ffffff;
+  position: relative;
+  background-image: url('../../../assets/img/book-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-weight: bold;
+}
+
+.hero-daftar-booking .shape {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(134, 117, 169, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.hero-daftar-booking .container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 110px;
+  height: 100%;
+}
+
+
+.daftar-booking {
+  font-family: 'Product Sans';
+  color: #8675a9;
+}
+
+.daftar-booking input:focus {
+  border: 1px solid #8675a9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 1px 4px rgba(134, 117, 169, 0.5);
+  outline: 0 none;
+}
+
+.daftar-booking .date {
+  height: 65px;
+}
+
+.daftar-booking .date input {
+  width: 90%;
+  color: #8675a9;
+}
+
+.daftar-booking .date button {
+  width: 6%;
+  height: 100%;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  box-shadow: 0 0 4px 1px rgba(134, 117, 169, 0.3);
+  cursor: pointer;
+  font-size: 1.3em;
+  background: #ffffff;
+  color: #8675a9;
+}
+
+.daftar-booking .table-data-booking th {
+  color: #8675a9;
+}
