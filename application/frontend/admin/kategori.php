@@ -5,9 +5,14 @@ if (!isset($username)) {
   header('location:login.php');
 }
 $data_kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
-$produk = mysqli_query($koneksi, "SELECT DISTINCT id_kategori FROM produk");
-$listIdKategori = mysqli_fetch_array($produk);
-// var_dump($listIdKategori)
+$produk = mysqli_query($koneksi, "SELECT * FROM produk");
+
+$listIdKategori = array();
+
+
+while ($IdKategori = mysqli_fetch_array($produk)) {
+  array_push($listIdKategori, $IdKategori["id_kategori"]);
+}
 
 ?>
 <!DOCTYPE html>

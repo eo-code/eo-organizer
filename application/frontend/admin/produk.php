@@ -5,6 +5,11 @@ if (!isset($username)) {
   header('location:login.php');
 }
 $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori ON produk.id_kategori=kategori.id_kategori");
+$a = array();
+$cek = mysqli_query($koneksi, ("SELECT * FROM produk"));
+while ($g = mysqli_fetch_array($cek)) {
+  array_push($a, $g['id_produk']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,9 +90,11 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
                       <a href="produk.php?p=edit&id=<?= $produk['id_produk']; ?>">
                         <button class="ui blue tiny button">Edit</button>
                       </a>
-                      <a href="../../backend/admin/produk/hapus.php?id=<?= $produk['id_produk']; ?>">
-                        <button class="ui blue tiny button">Hapus</button>
-                      </a>
+                      <?php if (in_array($produk['id_produk'], $a)) { ?>
+                        <div class="ui red tiny button mt-20 button btn-warning" tabindex="0">Hapus</div> <?php } else { ?>
+                        <a href="../../backend/admin/produk/hapus.php?id=<?= $produk['id_produk']; ?>">
+                          <button class="ui blue tiny button">Hapus</button> <?php } ?>
+                        </a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -132,6 +139,16 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
           </div>
 
         </div>
+        <div class="ui small modal warning">
+          <div class="header" style="text-align: center; color:red;">Perhatian!!!</div>
+          <div class="content">
+            <div class="ui form">
+              <div class="field" style="text-align: center;">
+                <h3>Produk tidak dapat di hapus</h3>
+              </div>
+            </div>
+          </div>
+        </div>
         <?php if (isset($_GET['p'])) : ?>
 
           <?php if ($_GET['p'] == 'edit') : ?>
@@ -174,9 +191,6 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
                     <label for="">Gambar</label>
                     <input type="hidden" name="a" value="<?= $queryData['gambar'] ?>">
                     <input type="file" name="gambar">
-                    <!-- <label for="">Apakah ingin mengubah gambar?</label>
-                    <button class="ui black button" id="yaGambar">Ya</button>
-                    <button class="ui black button" id="tidakGambar">Tidak</button> -->
                   </div>
                   <button type="submit" class="ui blue fluid button" name="editBarang">Edit</button>
                 </div>
@@ -205,7 +219,10 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
           context: $('.bottom.segment')
         })
         .sidebar('attach events', '.menu .item');
-
+      $('.btn-warning').on('click', function() {
+        $('.ui.modal.small.warning')
+          .modal("show");
+      })
       $('.ui.accordion')
         .accordion();
     </script>

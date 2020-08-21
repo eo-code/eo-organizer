@@ -9,14 +9,10 @@ $cekId = mysqli_query($koneksi, "SELECT DISTINCT id_kategori FROM produk ");
 $listId = mysqli_num_rows($cekId);
 
 
-if ($listId < 0) {
 
-    $delete_query = mysqli_query($koneksi, "DELETE FROM kategori WHERE id_kategori='$id'");
-    if ($delete_query) {
-        echo "<script>window.location.href = '../../../frontend/admin/kategori.php'</script>";
-    } else {
-        echo "<script>window.location.href = '../../../frontend/admin/kategori.php'</script>";
-    }
+$delete_query = mysqli_query($koneksi, "DELETE FROM kategori WHERE id_kategori='$id'");
+if ($delete_query) {
+    echo "<script>window.location.href = '../../../frontend/admin/kategori.php'</script>";
 } else {
     echo "<script>window.location.href = '../../../frontend/admin/kategori.php'</script>";
 }

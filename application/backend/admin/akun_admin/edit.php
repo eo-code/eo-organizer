@@ -80,7 +80,8 @@ if ($username == $cookie) {
         if ($foto_awal == "") {
             $query_edit = mysqli_query($koneksi, "UPDATE admin SET username='$username',nama='$nama',email='$email'");
             if ($query_edit) {
-                echo "<script>alert('Sukses Melakukan Perubahan Silahkan Login Kembali 1');window.location.href = '../../../frontend/admin/login.php'</script>";
+                setcookie("username", "", time() - (3600 * 24), "/");
+                echo "<script>alert('Sukses Melakukan Perubahan Silahkan Login Kembali');window.location.href = '../../../frontend/admin/login.php'</script>";
             } else {
                 echo "<script>window.location.href = '../../../frontend/admin/akun_admin.php'</script>";
             }
@@ -106,14 +107,16 @@ if ($username == $cookie) {
     } else {
         $query_edit = mysqli_query($koneksi, "UPDATE admin SET username='$username',nama='$nama',email='$email',password='$password'");
         if ($query_edit) {
-            echo "<script>alert('Sukses Melakukan Perubahan Silahkan Login Kembali 2');window.location.href = '../../../frontend/admin/login.php'</script>";
+            setcookie("username", "", time() - (3600 * 24), "/");
+            echo "<script>alert('Sukses Melakukan Perubahan Silahkan Login Kembali');window.location.href = '../../../frontend/admin/login.php'</script>";
         } else {
             echo "<script>window.location.href = '../../../frontend/admin/akun_admin.php'</script>";
         }
         if ($foto_awal == "") {
             $query_edit = mysqli_query($koneksi, "UPDATE admin SET username='$username',nama='$nama',email='$email',password='$password'");
             if ($query_edit) {
-                echo "<script>alert('Sukses Melakukan Perubahan Silahkan Login Kembali 2');window.location.href = '../../../frontend/admin/login.php'</script>";
+                setcookie("username", "", time() - (3600 * 24), "/");
+                echo "<script>alert('Sukses Melakukan Perubahan Silahkan Login Kembali');window.location.href = '../../../frontend/admin/login.php'</script>";
             } else {
                 echo "<script>window.location.href = '../../../frontend/admin/akun_admin.php'</script>";
             }
