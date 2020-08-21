@@ -19,13 +19,13 @@ if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
         move_uploaded_file($file_tmp, '../../../../assets/images/' . $gambar);
         $query_tambah = mysqli_query($koneksi, "INSERT INTO produk VALUES ('','$nama_produk', '$gambar','$kategori','$harga','$deskripsi')");
         if ($query_tambah) {
-            echo "<script>alert('Tambah Produk Sukses');window.location.href = '../../../frontend/admin/halamanAdmin.php'</script>";
+            echo "<script>window.location.href = '../../../frontend/admin/produk.php'</script>";
         } else {
-            echo "<script>alert('Tambah Produk Gagal');window.location.href = '../../../frontend/admin/halamanAdmin.php'</script>";
+            echo "<script>window.location.href = '../../../frontend/admin/produk.php'</script>";
         }
     } else {
-        echo "<script>alert('Ukuran File Tidak Boleh Lebih Dari 1 MB');window.location.href = '../../../frontend/admin/halamanAdmin.php'</script>";
+        echo "<script>alert('Ukuran File Tidak Boleh Lebih Dari 1 MB');window.location.href = '../../../frontend/admin/produk.php'</script>";
     }
 } else {
-    echo "<script>alert('Format Gambar Harus JPEG, JPG, atau PNG');window.location.href = '../../../frontend/admin/halamanAdmin.php'</script>";
+    echo "<script>alert('Format Gambar Harus JPEG, JPG, atau PNG');window.location.href = '../../../frontend/admin/produk.php'</script>";
 }

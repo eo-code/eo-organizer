@@ -1,5 +1,9 @@
 <?php
 include '../../backend/config/koneksi.php';
+$username = $_COOKIE['username'];
+if (!isset($username)) {
+  header('location:login.php');
+}
 $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori ON produk.id_kategori=kategori.id_kategori");
 ?>
 <!DOCTYPE html>
@@ -11,6 +15,7 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
   <title>Halaman Admin</title>
   <link rel="stylesheet" href="../../../assets/semantic/semantic.min.css">
   <link rel="stylesheet" href="../../../assets/semantic/style.css">
+  <link rel="stylesheet" href="../../../assets/summernote/summernote.min.css">
 </head>
 
 <body>
@@ -23,20 +28,35 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
   </div>
   <div class="ui bottom attached segment">
     <div class="ui inverted labeled icon left inline vertical demo sidebar menu">
-      <a href="halamanAdmin.php" class="item">
-        <i class="box icon"></i> Product
+      <a href="daftarMember.php" class="item">
+        <i class="address card icon"></i> Member
       </a>
-      <a href="halamanAdmin.php?p=invoice" class="item">
-        <i class="payment icon"></i> Kategori
+      <a href="daftarBooking.php" class="item">
+        <i class="book icon"></i> Booking
+      </a>
+      <a href="produk.php" class="item">
+        <i class="shopping cart icon"></i> Product
+      </a>
+      <a href="kategori.php" class="item">
+        <i class="th large icon"></i> Kategori
+      </a>
+      <a href="gallery.php" class="item">
+        <i class="image icon"></i> Gallery
+      </a>
+      <a href="akun_admin.php" class="item">
+        <i class="user circle icon"></i> Account
+      </a>
+      <a href="../../backend/admin/akun_admin/logout.php" class="item">
+        <i class="sign out icon"></i> Logout
       </a>
     </div>
     <div class="pusher">
       <div class="ui basic segment">
         <div class="main ui fluid container mt-20">
           <div class="ui center aligned header">
-            Selamat Datang Admin
+            Produk
           </div>
-          <div class="ui top attached button mt-20" id="tambahBarang" tabindex="0">Tambah Data</div>
+          <div class="ui top attached teal button mt-20" id="tambahBarang" tabindex="0">Tambah Data</div>
           <div class="ui attached segment">
             <table class="ui very basic table">
               <thead>
@@ -59,10 +79,10 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
                     <td><img src="../../../assets/images/<?= $produk['gambar']; ?>" style="width: 100px; height:100px; object-fit:cover"></td>
                     <td><?= $produk['nama_produk']; ?></td>
                     <td><?= $produk['kategori']; ?></td>
-                    <td><?= $produk['harga']; ?></td>
+                    <td>Rp.<?= number_format($produk['harga'], 0, ",", ".")  ?>,-</td>
                     <td><?= $produk['deskripsi']; ?></td>
                     <td>
-                      <a href="halamanAdmin.php?p=edit&id=<?= $produk['id_produk']; ?>">
+                      <a href="produk.php?p=edit&id=<?= $produk['id_produk']; ?>">
                         <button class="ui blue tiny button">Edit</button>
                       </a>
                       <a href="../../backend/admin/produk/hapus.php?id=<?= $produk['id_produk']; ?>">
@@ -89,7 +109,7 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
                   </div>
                   <div class="field">
                     <label for="">Deskripsi</label>
-                    <textarea name="deskripsi" id="" placeholder="Deskripsi Produk"></textarea>
+                    <textarea name="deskripsi" id="summernote" placeholder="Deskripsi Produk"></textarea>
                   </div>
                   <div class="field">
                     <label for="">Kategori</label>
@@ -142,13 +162,11 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
                   <div class="field">
                     <label for="">Kategori</label>
                     <select name="kategori" id="">
-
                       <option value="">Pilih Kategori</option>
                       <?php $a = mysqli_query($koneksi, "SELECT * FROM kategori");
                       while ($l = mysqli_fetch_array($a)) { ?>
-                        <?php echo $l['id_kategori']; ?>
                         <option <?php if ($queryData['id_kategori'] === $l['id_kategori']) {
-                                  echo 'selected';
+                                  echo 'selected="selected"';
                                 } ?>value="<?= $l['id_kategori'] ?>"><?= $l['kategori'] ?></option>
                       <?php }  ?>
                     </select> </div>
@@ -219,5 +237,6 @@ $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori O
       <?php endif; ?>
     <?php endif; ?>
 </body>
+<script src="../../../assets/summernote/summernote.min.js"></script>
 
 </html>
