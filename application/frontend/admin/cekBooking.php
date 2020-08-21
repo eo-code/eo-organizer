@@ -16,7 +16,7 @@
         // $cek = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN produk ON booking.id_product = produk.id_produk LEFT JOIN kategori ON produk.id_kategori = kategori.id_kategori WHERE  booking.tanggal_booking NOT LIKE '$tanggalBooking%' ");
         $cek1 = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN produk ON booking.id_product = produk.id_produk LEFT JOIN kategori ON produk.id_kategori = kategori.id_kategori WHERE `tanggal_booking` BETWEEN '$tanggalBooking-01-01' AND '$tanggalBooking-12-31' ");
         // var_dump(mysqli_fetch_array($cek));
-        var_dump(mysqli_fetch_array($cek1));
+        // var_dump(mysqli_fetch_array($cek1));
         var_dump($tanggalBooking);
 
     ?>
