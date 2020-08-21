@@ -20,8 +20,8 @@
         <?php } ?>
       </div>
       <a href="./tentang.php">Tentang</a>
-      <a href="" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lainnya<i class="fas fa-chevron-down pl-2"></i></a>
-      <div class="dropdown-menu p-3" aria-labelledby="dropdownMenu">
+      <a href="" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lainnya<i class="fas fa-chevron-down pl-2"></i></a>
+      <div class="dropdown-menu p-3" aria-labelledby="dropdown1">
         <p>Semua</p>
         <a class="dropdown-item" href="./daftar_booking.php">Daftar Booking</a>
         <a class="dropdown-item" href="./galeri.php">Galeri</a>
