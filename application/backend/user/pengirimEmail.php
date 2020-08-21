@@ -34,7 +34,7 @@ try {
     $mail->isHTML(true);
     $mail->Subject = 'Pesan Baru Dari Member Event Organizer';
     $mail->Body = "Kepada Nara Art Mendapatkan Pesan Dari <br/>
-    <h3>PENGIRIM</h3>
+    <h3>PENGIRIM</h3>  
      <span style='color:#8675a9;font-size:18px'>Dari</span>: <span>$nama</span> , <br/> 
      <span style='color:#8675a9;font-size:18px'>Email</span>: <span>$email</span>, <br/> 
      <span style='color:#8675a9;font-size:18px'>No Telepon</span>: <span>$no_hp</span> <br/> <br/> 
