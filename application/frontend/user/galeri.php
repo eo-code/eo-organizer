@@ -1,3 +1,21 @@
+
+<?php 
+
+include "../../backend/koneksi.php";
+
+if(isset($_COOKIE["email"]) && $_COOKIE["login"] == "sudah_login"){
+
+  // Get prodouk limit 3
+  $galeri = mysqli_query($koneksi, "SELECT * FROM galeri ORDER BY RAND() LIMIT 3 ");
+
+}else{
+  // Redirect halaman login
+  header("Location: ./signin.php");
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -38,5 +56,9 @@
       </div>
     </div>
 
+
+    <footer class="footer mt-5 w-100 d-flex justify-content-center align-items-center">
+    Copyright &copy; 2020
+  </footer>
   </body>
 </html>

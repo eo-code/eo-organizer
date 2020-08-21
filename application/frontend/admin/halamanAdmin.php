@@ -1,7 +1,6 @@
 <?php
 include '../../backend/config/koneksi.php';
-$data_produk = mysqli_query($koneksi, "SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori");
-$query_produk = mysqli_fetch_array($data_produk);
+$data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori ON produk.id_kategori=kategori.id_kategori");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,17 +41,22 @@ $query_produk = mysqli_fetch_array($data_produk);
             <table class="ui very basic table">
               <thead>
                 <tr>
-                  <th>Id Produk</th>
+                  <th>No</th>
+                  <th>Gambar Produk</th>
                   <th>Nama Produk</th>
                   <th>Kategori</th>
                   <th>Harga</th>
                   <th>Deskripsi Produk</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <?php while ($produk = mysqli_fetch_array($data_produk)) { ?>
+                <?php
+                $no = 1;
+                while ($produk = mysqli_fetch_array($data_produk)) { ?>
                   <tr>
-                    <td><?= $produk['id_produk']; ?></td>
+                    <td><?= $no++ ?></td>
+                    <td><img src="../../../assets/images/<?= $produk['gambar']; ?>" style="width: 100px; height:100px; object-fit:cover"></td>
                     <td><?= $produk['nama_produk']; ?></td>
                     <td><?= $produk['kategori']; ?></td>
                     <td><?= $produk['harga']; ?></td>
@@ -61,7 +65,7 @@ $query_produk = mysqli_fetch_array($data_produk);
                       <a href="halamanAdmin.php?p=edit&id=<?= $produk['id_produk']; ?>">
                         <button class="ui blue tiny button">Edit</button>
                       </a>
-                      <a href="../.././config/config.php?idBarang=<?= $produk['id_produk']; ?>">
+                      <a href="../../backend/admin/produk/hapus.php?id=<?= $produk['id_produk']; ?>">
                         <button class="ui blue tiny button">Hapus</button>
                       </a>
                     </td>
@@ -71,29 +75,29 @@ $query_produk = mysqli_fetch_array($data_produk);
             </table>
           </div>
           <div class="ui small modal barang">
-            <div class="header">Tambah Barang</div>
+            <div class="header">Tambah Produk</div>
             <div class="content">
               <form action="../../backend/admin/produk/tambah.php" method="post" enctype="multipart/form-data">
                 <div class="ui form">
                   <div class="field">
-                    <label for="">Nama Barang</label>
-                    <input type="text" name="namaProduk" id="" placeholder="Nama barang">
+                    <label for="">Nama Produk</label>
+                    <input type="text" name="namaProduk" id="" placeholder="Nama Produk">
                   </div>
                   <div class="field">
-                    <label for="">Harga Barang</label>
-                    <input type="number" name="hargaProduk" id="" placeholder="Harga Barang">
+                    <label for="">Harga Produk</label>
+                    <input type="number" name="harga" id="" placeholder="Harga Produk">
                   </div>
                   <div class="field">
                     <label for="">Deskripsi</label>
-                    <textarea name="deskripsi" id=""></textarea>
+                    <textarea name="deskripsi" id="" placeholder="Deskripsi Produk"></textarea>
                   </div>
                   <div class="field">
                     <label for="">Kategori</label>
                     <select name="kategori" id="">
-                      <option value="">None</option>
+                      <option value="">Pilih Kategori</option>
                       <?php $data_kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
                       while ($k = mysqli_fetch_array($data_kategori)) {
-                        echo "<option values='$k[id_kategori]'>$k[kategori]</option>";
+                        echo "<option value='$k[id_kategori]'>$k[kategori]</option>";
                       } ?>
                     </select>
                   </div>
@@ -113,44 +117,50 @@ $query_produk = mysqli_fetch_array($data_produk);
           <?php if ($_GET['p'] == 'edit') : ?>
             <?php
             $id = $_GET['id'];
-            $query = mysqli_query($koneksi, "SELECT * FROM tbl_barang WHERE id_barang='$id'");
+            $query = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori ON produk.id_kategori=kategori.id_kategori WHERE produk.id_produk='$id'");
             $queryData = mysqli_fetch_assoc($query);
             ?>
             <div class="main ui fluid container mt-20">
               <div class="ui center aligned header">
-                Selamat Datang Admin
+                Edit Produk
               </div>
-              <form action="../.././config/config.php" method="post" enctype="multipart/form-data">
+              <form action="../../backend/admin/produk/edit.php?id=<?= $queryData['id_produk'] ?>" method="post" enctype="multipart/form-data">
                 <div class="ui form">
                   <div class="field">
-                    <label for="">Nama Barang</label>
-                    <input type="text" name="namaBarang" id="" placeholder="Nama barang" value="<?= $queryData['nama_barang']; ?>">
+                    <label for="">Nama Produk</label>
+                    <input type="text" name="namaProduk" id="" placeholder="Nama Produk" value="<?= $queryData['nama_produk']; ?>">
                   </div>
                   <div class="field">
-                    <label for="">Harga Barang</label>
-                    <input type="number" name="hargaBarang" id="" placeholder="Harga Barang" value="<?= $queryData['harga_barang']; ?>">
+                    <label for="">Harga Produk</label>
+                    <input type="number" name="harga" id="" placeholder="Harga Produk" value="<?= $queryData['harga']; ?>">
                   </div>
                   <div class="field">
                     <label for="">Deskripsi</label>
                     <textarea name="deskripsi" id=""><?= $queryData['deskripsi']; ?></textarea>
                   </div>
+
                   <div class="field">
                     <label for="">Kategori</label>
-                    <input type="text" name="kategori" id="" placeholder="Masukkan Kategori" value="<?= $queryData['kategori']; ?>">
-                  </div>
-                  <div class="field">
-                    <label for="">Stok</label>
-                    <input type="number" name="stok" id="" placeholder="Masukkan stok" value="<?= $queryData['stok']; ?>">
-                    <input type="hidden" name="" id="queryGambar" value="<?= $queryData['gambar']; ?>">
-                    <input type="hidden" name="ket" id="ket">
-                    <input type="hidden" name="id" value="<?= $queryData['id_barang']; ?>">
-                  </div>
+                    <select name="kategori" id="">
+
+                      <option value="">Pilih Kategori</option>
+                      <?php $a = mysqli_query($koneksi, "SELECT * FROM kategori");
+                      while ($l = mysqli_fetch_array($a)) { ?>
+                        <?php echo $l['id_kategori']; ?>
+                        <option <?php if ($queryData['id_kategori'] === $l['id_kategori']) {
+                                  echo 'selected';
+                                } ?>value="<?= $l['id_kategori'] ?>"><?= $l['kategori'] ?></option>
+                      <?php }  ?>
+                    </select> </div>
                   <div class="field" id="fieldGambar">
-                    <label for="">Apakah ingin mengubah gambar?</label>
+                    <label for="">Gambar</label>
+                    <input type="hidden" name="a" value="<?= $queryData['gambar'] ?>">
+                    <input type="file" name="gambar">
+                    <!-- <label for="">Apakah ingin mengubah gambar?</label>
                     <button class="ui black button" id="yaGambar">Ya</button>
-                    <button class="ui black button" id="tidakGambar">Tidak</button>
+                    <button class="ui black button" id="tidakGambar">Tidak</button> -->
                   </div>
-                  <button class="ui blue fluid button" name="editBarang">Edit</button>
+                  <button type="submit" class="ui blue fluid button" name="editBarang">Edit</button>
                 </div>
               </form>
 
