@@ -33,9 +33,9 @@
       if (isset($_GET['tanggal'])) {
         if (isset($_GET['category'])) {
           $kategori = $_GET['category'];
-          $data_produk = mysqli_query($koneksi, "SELECT * FROM produk, booking  WHERE produk.id_kategori = '$kategori' AND (produk.id_produk NOT IN (SELECT Id_product FROM booking) OR NOT booking.tanggal = '$_GET[tanggal]') ");
+          $data_produk = mysqli_query($koneksi, "SELECT DISTINCT produk.* FROM produk, booking  WHERE produk.id_kategori = '$kategori' AND (produk.id_produk NOT IN (SELECT Id_product FROM booking) OR NOT booking.tanggal = '$_GET[tanggal]') ");
         } else {
-          $data_produk = mysqli_query($koneksi, "SELECT * FROM produk, booking WHERE produk.id_produk NOT IN (SELECT Id_product FROM booking) OR NOT booking.tanggal = '$_GET[tanggal]' ");
+          $data_produk = mysqli_query($koneksi, "SELECT DISTINCT produk.* FROM produk, booking WHERE produk.id_produk NOT IN (SELECT Id_product FROM booking) OR NOT booking.tanggal = '$_GET[tanggal]' ");
         }
       } ?>
 
