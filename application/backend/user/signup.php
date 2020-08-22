@@ -38,7 +38,7 @@ else {
 
         if($simpan){
             // Redirect ke halaman login
-            echo "<script>window.location.href = '../../frontend/user/signin`.php' </script>";
+            echo "<script>window.location.href = '../../frontend/user/signin.php' </script>";
         }
         else {
             // Redirect ke halaman signup

@@ -21,6 +21,8 @@
       </div>
       
     </div>
+    <div class="popup-success d-flex justify-content-center align-items-center w-100">
+    </div>
   </div>
 
   <div class="bottom w-100">
@@ -78,7 +80,12 @@
   <script>        
     let wrapCart = document.querySelector('.wrap-card-keranjang');
     let dataCart = JSON.parse(localStorage.getItem('dataCart'));
-    let elCart = ``
+    const popupSuccess = document.querySelector('.popup-success');
+    let elCart = ``;
+    let elBox = `<div class="box d-flex flex-column justify-content-center align-items-center">
+        <i class="fas fa-check-circle"></i>
+        <h6 class="mt-3">Berhasil menghapus produk dari keranjang</h6>
+      </div>`;
 
     dataCart.forEach(dc => {
       elCart += `
@@ -128,17 +135,25 @@
 
 
 
-    let priceInt = []
+        let priceInt = []
 
-    let price = document.querySelectorAll('.card-keranjang .price');
+        let price = document.querySelectorAll('.card-keranjang .price');
 
-    price.forEach(p => {
-      priceInt.push(+p.textContent.split('.').join(''));
-    })
+        price.forEach(p => {
+          priceInt.push(+p.textContent.split('.').join(''));
+        })
 
-    const priceTotal = priceInt.reduce((acc, currentValue) =>  acc + currentValue, 0);
+        const priceTotal = priceInt.reduce((acc, currentValue) =>  acc + currentValue, 0);
 
-    elPriceTotal.textContent = priceTotal
+        elPriceTotal.textContent = priceTotal
+
+        popupSuccess.style.zIndex = "2";
+        popupSuccess.innerHTML = elBox;
+
+        setTimeout(() => {
+          popupSuccess.style.zIndex = "-2";          
+          popupSuccess.innerHTML = '';
+        }, 1200)
 
 
       })
