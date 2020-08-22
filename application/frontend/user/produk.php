@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="../style/./style.css">
   <link rel="stylesheet" href="../style/./produk.css">
   <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.css">
-  <script src="https://kit.fontawesome.com/e6f4490556.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/e6f4490556.js" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="../../../assets/icon/css/all.css">
   <title>Produk</title>
 </head>
 <body>
@@ -38,12 +39,21 @@
         <button><i class="fa fa-search"></i></button>
       </div>
 
-      <div class="wrap-product row mt-4" style="padding-bottom: 8em">        
+      <div class="wrap-product row mt-4" style="padding-bottom: 8em">               
         <div class="col-md-3 col-6">          
           <div class="card-product">
             <div class="wrap-img">
               <img src="../../../assets/img/hero-bg.png" alt="">
             </div>  
+            <div class="description-product d-flex justify-content-center align-items-center">
+              <i class="fa fa-info p-2"></i>
+              <div class="box">
+                <div class="description p-3">
+                  <h5>Deskripsi</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam blanditiis nobis dicta quos error aperiam inventore molestiae quasi distinctio aut!</p>
+                </div>
+              </div>
+            </div>
             <div class="info-product p-2 pt-3 pb-1 pr-4 d-flex flex-column justify-content-between">
               <input type="hidden" name="id" id="id" value="2">
               <input type="hidden" name="email" id="email" value="coba@gmail.com">
@@ -60,10 +70,19 @@
             <div class="wrap-img">
               <img src="../../../assets/img/hero-bg.png" alt="">
             </div>  
+            <div class="description-product d-flex justify-content-center align-items-center">
+              <i class="fa fa-info p-2"></i>
+              <div class="box">
+                <div class="description p-3">
+                  <h5>Deskripsi</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam blanditiis nobis dicta quos error aperiam inventore molestiae quasi distinctio aut!</p>
+                </div>
+              </div>
+            </div>
             <div class="info-product p-2 pt-3 pb-1 pr-4 d-flex flex-column justify-content-between">
-              <input type="hidden" name="id" id="idProduct" value="3">
+              <input type="hidden" name="id" id="id" value="2">
               <input type="hidden" name="email" id="email" value="coba@gmail.com">
-              <h6 class="nameProduct">Nama Produk Coba</h6>
+              <h6 class="nameProduct">Nama Produk Awok awok awok awok awok awok</h6>
               <p>Rp. <span class="price">200.000</span></p>
             </div>
             <div class="button-product d-flex justify-content-center align-items-center">
@@ -76,10 +95,19 @@
             <div class="wrap-img">
               <img src="../../../assets/img/hero-bg.png" alt="">
             </div>  
+            <div class="description-product d-flex justify-content-center align-items-center">
+              <i class="fa fa-info p-2"></i>
+              <div class="box">
+                <div class="description p-3">
+                  <h5>Deskripsi</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam blanditiis nobis dicta quos error aperiam inventore molestiae quasi distinctio aut!</p>
+                </div>
+              </div>
+            </div>
             <div class="info-product p-2 pt-3 pb-1 pr-4 d-flex flex-column justify-content-between">
-              <input type="hidden" name="id" id="idProduct" value="4">
+              <input type="hidden" name="id" id="id" value="2">
               <input type="hidden" name="email" id="email" value="coba@gmail.com">
-              <h6 class="nameProduct">Nama Produk Pernikahan</h6>
+              <h6 class="nameProduct">Nama Produk Awok awok awok awok awok awok</h6>
               <p>Rp. <span class="price">200.000</span></p>
             </div>
             <div class="button-product d-flex justify-content-center align-items-center">
@@ -92,10 +120,19 @@
             <div class="wrap-img">
               <img src="../../../assets/img/hero-bg.png" alt="">
             </div>  
+            <div class="description-product d-flex justify-content-center align-items-center">
+              <i class="fa fa-info p-2"></i>
+              <div class="box">
+                <div class="description p-3">
+                  <h5>Deskripsi</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam blanditiis nobis dicta quos error aperiam inventore molestiae quasi distinctio aut!</p>
+                </div>
+              </div>
+            </div>
             <div class="info-product p-2 pt-3 pb-1 pr-4 d-flex flex-column justify-content-between">
-              <input type="hidden" name="id" id="idProduct" value="5">
+              <input type="hidden" name="id" id="id" value="2">
               <input type="hidden" name="email" id="email" value="coba@gmail.com">
-              <h6 class="nameProduct">Nama Produk Dekorasi</h6>
+              <h6 class="nameProduct">Nama Produk Awok awok awok awok awok awok</h6>
               <p>Rp. <span class="price">200.000</span></p>
             </div>
             <div class="button-product d-flex justify-content-center align-items-center">
@@ -103,6 +140,7 @@
             </div>
           </div>
         </div>
+       
         
         
       </div>
@@ -117,6 +155,7 @@
     const date = new Date();
     const inputDate = document.querySelector('#date');
     const popupSuccess = document.querySelector('.popup-success');
+    const descriptionProduct = document.querySelectorAll('.description-product i');
     let elBox = `<div class="box d-flex flex-column justify-content-center align-items-center">
         <i class="fas fa-check-circle"></i>
         <h6 class="mt-3">Berhasil menambahkan ke keranjang</h6>
@@ -140,15 +179,16 @@
         let priceProduct = '';
 
         if(e.target.className === 'button-product d-flex justify-content-center align-items-center'){
-          id = e.target.parentElement.children[1].children[0].value;
-          email = e.target.parentElement.children[1].children[1].value;
-          productName = e.target.parentElement.children[1].children[2].textContent;
-          priceProduct = e.target.parentElement.children[1].children[3].children[0].textContent;
+          id = e.target.parentElement.children[2].children[0].value;
+          email = e.target.parentElement.children[2].children[1].value;
+          productName = e.target.parentElement.children[2].children[2].textContent;
+          priceProduct = e.target.parentElement.children[2].children[3].children[0].textContent;
+          console.log(e.target.parentElement.children[2])
         } else {
-          id = e.target.parentElement.parentElement.children[1].children[0].value;
-          email = e.target.parentElement.parentElement.children[1].children[1].value;
-          productName = e.target.parentElement.parentElement.children[1].children[2].textContent;
-          priceProduct = e.target.parentElement.parentElement.children[1].children[3].children[0].textContent;
+          id = e.target.parentElement.parentElement.children[2].children[0].value;
+          email = e.target.parentElement.parentElement.children[2].children[1].value;
+          productName = e.target.parentElement.parentElement.children[2].children[2].textContent;
+          priceProduct = e.target.parentElement.parentElement.children[2].children[3].children[0].textContent;
         }
 
         let arrProduct = [{idProduct: id, name: productName, price: priceProduct, emailUser: email}]
@@ -178,6 +218,23 @@
         }
         
       })
+    })
+
+    descriptionProduct.forEach(dp => {
+      dp.addEventListener('mouseenter', function(){
+        this.parentElement.children[1].children[0].style.zIndex = '3'
+        this.parentElement.children[1].children[0].style.opacity = '1'
+        this.parentElement.parentElement.style.overflow = 'visible'
+        console.log(this.className)
+      })
+
+      dp.addEventListener('mouseleave', function(){
+        this.parentElement.children[1].children[0].style.zIndex = '-3'
+        this.parentElement.children[1].children[0].style.opacity = '0'
+        this.parentElement.parentElement.style.overflow = 'hidden'
+        console.log(this.parentElement)
+      })
+
     })
     
   </script>
