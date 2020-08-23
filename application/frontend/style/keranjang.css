@@ -80,3 +80,38 @@
   color: #8675a9;
   font-weight: bold;
 }
+
+.keranjang .popup-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: -2;
+}
+
+.keranjang .popup-success .box {
+  width: 30%;
+  height: 120px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 6px 1px rgba(134, 117, 169, 0.3);
+  animation: .3s scaleUp ease-in-out;
+}
+
+.keranjang .popup-success .box i {
+  font-size: 2.5em;
+}
+
+.keranjang .popup-success .box h6 {
+  font-weight: bold;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

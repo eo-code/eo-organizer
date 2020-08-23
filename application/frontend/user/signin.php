@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style/./sign.css">
   <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.css">
-  <script src="https://kit.fontawesome.com/e6f4490556.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../../assets/icon/css/all.css">
   <title>Sign In</title>
 </head>
 
@@ -30,7 +30,8 @@
               <label for="">Password</label>
               <input type="password" class="form-control" name="password" id="password">
             </div>
-            <button class="mt-5">Sign In</button>
+            <p>Apakah anda belum punya akun? <a href="./signup.php">Sign Up</a></p>
+            <button class="mt-2">Sign In</button>
           </form>
 
         </div>

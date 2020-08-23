@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style/./style.css">
   <link rel="stylesheet" href="../style/./keranjang.css">
   <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.css">
-  <script src="https://kit.fontawesome.com/e6f4490556.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../../assets/icon/css/all.css">
   <title>Keranjang</title>
 </head>
+
 <body>
-  
+
   <?php include './layout/header.php'; ?>
 
   <div class="keranjang mt-5">
@@ -19,7 +21,9 @@
 
       <div class="wrap-card-keranjang row mt-5">
       </div>
-      
+
+    </div>
+    <div class="popup-success d-flex justify-content-center align-items-center w-100">
     </div>
   </div>
 
@@ -27,7 +31,7 @@
     <div class="container d-flex justify-content-between align-items-center">
       <div class="left pt-2">
         <h6>Total Harga</h6>
-        <h6>Rp. <span class="price-total">200.00</span></h6>
+        <h6>Rp. <span class="price-total">0</span></h6>
       </div>
       <div class="right">
         <button data-toggle="modal" data-target="#dataDiri">Checkout</button>
@@ -44,41 +48,48 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="">Nama Lengkap</label>
-            <input type="text" class="form-control" name="nama" id="username">
-          </div>
-          <div class="form-group">
-            <label for="">Email</label>
-            <input type="email" class="form-control" name="email" id="email">
-          </div>
-          <div class="form-group">
-            <label for="">No Hp</label>
-            <input type="number" class="form-control" name="number" id="number">
-          </div>
-          <div class="form-group">
-            <label for="">Alamat</label>
-            <textarea class="form-control" name="alamat" id="" cols="30" rows="5"></textarea>
-          </div>
+        <form action="" id="biodata">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="">Nama Lengkap</label>
+              <input type="text" class="form-control" name="nama" id="username">
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="email" class="form-control" name="email" id="email">
+            </div>
+            <div class="form-group">
+              <label for="">No Hp</label>
+              <input type="number" class="form-control" name="no_hp" id="number">
+            </div>
+            <div class="form-group">
+              <label for="">Alamat</label>
+              <textarea class="form-control" name="alamat" id="" cols="30" rows="5"></textarea>
+            </div>
 
-          <div class="form-group">
-            <label for="">Catatan</label>
-            <textarea class="form-control" name="catatan" id="" cols="30" rows="5"></textarea>
+            <div class="form-group">
+              <label for="">Catatan</label>
+              <textarea class="form-control" name="catatan" id="" cols="30" rows="5"></textarea>
+            </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" style="border: none; background-color: #FFFFFF; color: #8675a9;box-shadow: 0 0 4px 1px rgba(134, 117, 169, 0.4);" data-dismiss="modal">Close</button>
-          <button type="button" style="border: none;background-color: #8675a9;color: #ffffff;" class="btn btn-primary">Pesan</button>
-        </div>
+          <div class="modal-footer">
+            <button type="button" style="border: none; background-color: #FFFFFF; color: #8675a9;box-shadow: 0 0 4px 1px rgba(134, 117, 169, 0.4);" data-dismiss="modal">Close</button>
+            <button type="submit" style="border: none;background-color: #8675a9;color: #ffffff;" class="btn btn-primary">Pesan</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
-  <script>        
+
+  <script>
     let wrapCart = document.querySelector('.wrap-card-keranjang');
     let dataCart = JSON.parse(localStorage.getItem('dataCart'));
-    let elCart = ``
+    const popupSuccess = document.querySelector('.popup-success');
+    let elCart = ``;
+    let elBox = `<div class="box d-flex flex-column justify-content-center align-items-center">
+        <i class="fas fa-check-circle"></i>
+        <h6 class="mt-3">Berhasil menghapus produk dari keranjang</h6>
+      </div>`;
 
     dataCart.forEach(dc => {
       elCart += `
@@ -112,13 +123,13 @@
     })
 
     buttonDelete.forEach(bd => {
-      bd.addEventListener('click', function(){
+      bd.addEventListener('click', function() {
         let id = this.dataset.id;
         console.log(id)
         let hapusKeranjang = dataCart.filter(dc => dc.idProduct != id);
 
         console.log(hapusKeranjang);
-    // // dataCart.forEach(dc => console.log(dc.idProduct))
+        // // dataCart.forEach(dc => console.log(dc.idProduct))
         localStorage.setItem('dataCart', JSON.stringify(hapusKeranjang));
 
         // let cf = JSON.parse(localStorage.getItem('dataCart'));
@@ -128,26 +139,68 @@
 
 
 
-    let priceInt = []
+        let priceInt = []
 
-    let price = document.querySelectorAll('.card-keranjang .price');
+        let price = document.querySelectorAll('.card-keranjang .price');
 
-    price.forEach(p => {
-      priceInt.push(+p.textContent.split('.').join(''));
-    })
+        price.forEach(p => {
+          priceInt.push(+p.textContent.split('.').join(''));
+        })
 
-    const priceTotal = priceInt.reduce((acc, currentValue) =>  acc + currentValue, 0);
+        const priceTotal = priceInt.reduce((acc, currentValue) => acc + currentValue, 0);
 
-    elPriceTotal.textContent = priceTotal
+        elPriceTotal.textContent = priceTotal
+
+        popupSuccess.style.zIndex = "2";
+        popupSuccess.innerHTML = elBox;
+
+        setTimeout(() => {
+          popupSuccess.style.zIndex = "-2";
+          popupSuccess.innerHTML = '';
+        }, 1200)
 
 
       })
     })
 
-    const priceTotal = priceInt.reduce((acc, currentValue) =>  acc + currentValue, 0);
+    const priceTotal = priceInt.reduce((acc, currentValue) => acc + currentValue, 0);
 
     elPriceTotal.textContent = priceTotal
 
+
+    const myForm = document.querySelector("#biodata");
+    myForm.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      let strProducts = JSON.parse(localStorage.getItem('dataCart'));
+      if (!strProducts) {
+        console.log("GAGAL");
+      }
+
+
+      const privateData = new FormData(this);
+      privateData.append("products", JSON.stringify(strProducts));
+
+      try {
+        const response = await fetch("../../backend/user/booking/proses.php", {
+          method: "POST",
+          body: privateData
+        });
+        const data = await response.json();
+        localStorage.removeItem("dataCart");
+
+        window.location.href = `./sukses.php?kode=${data.kode_booking}`;
+
+      } catch (err) {
+        console.log(err)
+      }
+
+
+
+
+
+    })
   </script>
 </body>
+
 </html>

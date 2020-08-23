@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'Product Sans';
-  url: ('../../../assets/font/ProductSans-Regular.woff') format('woff');
+  src: url('../../../assets/font/ProductSans-Regular.woff') format('woff');
 }
 
 .galeri {

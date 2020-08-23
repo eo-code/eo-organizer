@@ -1,7 +1,10 @@
 <?php
 // Include file koneksi database
 include '../../backend/config/koneksi.php';
-
+$username = $_COOKIE['username'];
+if (!isset($username)) {
+  header('location:login.php');
+}
 // Mengambil daftar member
 $daftarMember = mysqli_query($koneksi, "SELECT * FROM member");
 
@@ -27,11 +30,26 @@ $daftarMember = mysqli_query($koneksi, "SELECT * FROM member");
   </div>
   <div class="ui bottom attached segment">
     <div class="ui inverted labeled icon left inline vertical demo sidebar menu">
-      <a href="halamanAdmin.php" class="item">
-        <i class="box icon"></i> Product
+      <a href="daftarMember.php" class="item">
+        <i class="address card icon"></i> Member
       </a>
-      <a href="halamanAdmin.php?p=invoice" class="item">
-        <i class="payment icon"></i> Kategori
+      <a href="daftarBooking.php" class="item">
+        <i class="book icon"></i> Booking
+      </a>
+      <a href="produk.php" class="item">
+        <i class="shopping cart icon"></i> Product
+      </a>
+      <a href="kategori.php" class="item">
+        <i class="th large icon"></i> Kategori
+      </a>
+      <a href="gallery.php" class="item">
+        <i class="image icon"></i> Gallery
+      </a>
+      <a href="akun_admin.php" class="item">
+        <i class="user circle icon"></i> Account
+      </a>
+      <a href="../../backend/admin/akun_admin/logout.php" class="item">
+        <i class="sign out icon"></i> Logout
       </a>
     </div>
     <div class="pusher">
@@ -48,7 +66,6 @@ $daftarMember = mysqli_query($koneksi, "SELECT * FROM member");
                   <th>Nama</th>
                   <th>Email</th>
                   <th>No HP</th>
-                  <th>Alamat</th>
                 </tr>
               </thead>
               <tbody>
@@ -62,7 +79,6 @@ $daftarMember = mysqli_query($koneksi, "SELECT * FROM member");
                     <td><?= $member['nama']; ?></td>
                     <td><?= $member['email']; ?></td>
                     <td><?= $member['no_hp']; ?></td>
-                    <td><?= $member['alamat']; ?></td>
                   </tr>
                 <?php } ?>
               </tbody>

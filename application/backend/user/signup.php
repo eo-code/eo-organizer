@@ -1,6 +1,6 @@
 <?php
 // include file koneksi.php
-include "../koneksi.php";
+include "../config/koneksi.php";
 
 // Variable dari form user
 $username = $_POST["username"];
@@ -15,32 +15,28 @@ $validEmail = preg_match("/^\S+@\S+\.\S+$/", $email);
 $validPassword = strlen(trim($password));
 
 $cekEmail = mysqli_query($koneksi, "SELECT email FROM `member` where email = '$email' ");
-if($cekEmail->num_rows !== 0 ){
+if ($cekEmail->num_rows !== 0) {
     echo "<script>window.location.href = '../../frontend/user/signup.php?kodeError=2' </script>";
-   
 }
 
 // Jika email tersedia
 else {
-    
+
 
     // Check validasi
-    if($validEmail < 0 || $validPassword < 6 ){
+    if ($validEmail < 0 || $validPassword < 6) {
         // Redirect ke halaman signup jika gagal
         echo "<script>window.location.href = '../../frontend/user/signup.php?kodeError=6' </script>";
-
-    }
-    else {
-         // hash password
+    } else {
+        // hash password
         $hashPassword = password_hash($password, PASSWORD_DEFAULT);
         // process menyimpan data
         $simpan = mysqli_query($koneksi, "INSERT INTO member (username, `password`, nama, email, no_hp) VAlUES ('$username', '$hashPassword', '$nama', '$email', '$no_hp') ");
 
-        if($simpan){
+        if ($simpan) {
             // Redirect ke halaman login
-            echo "<script>window.location.href = '../../frontend/user/signin`.php' </script>";
-        }
-        else {
+            echo "<script>window.location.href = '../../frontend/user/signin.php' </script>";
+        } else {
             // Redirect ke halaman signup
             echo "<script>window.location.href = '../../frontend/user/signup.php?kodeError=0' </script>";
         }
@@ -49,6 +45,3 @@ else {
 // kodeError
 // 2 = email sudah terdaftar
 // 0 = bad request
-
-
-

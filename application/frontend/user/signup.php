@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style/./sign.css">
   <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.css">
-  <script src="https://kit.fontawesome.com/e6f4490556.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../../assets/icon/css/all.css">
   <title>Sign Up</title>
 </head>
 
@@ -47,9 +47,9 @@
                 <input type="email" name="email" class="form-control">
               </div>
             </div>
-            
-            <button class="mt-5" type="submit" class="btn-signup">Sign Up</button>
-        </form>
+            <p class="mt-3">Apakah anda sudah punya akun? <a href="./signin.php">Sign In</a></p>
+            <button class="mt-2" type="submit" class="btn-signup">Sign Up</button>
+          </form>
         </div>
       </div>
     </div>
