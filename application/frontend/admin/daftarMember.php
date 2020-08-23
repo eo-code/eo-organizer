@@ -66,7 +66,6 @@ $daftarMember = mysqli_query($koneksi, "SELECT * FROM member");
                   <th>Nama</th>
                   <th>Email</th>
                   <th>No HP</th>
-                  <th>Alamat</th>
                 </tr>
               </thead>
               <tbody>
@@ -80,7 +79,6 @@ $daftarMember = mysqli_query($koneksi, "SELECT * FROM member");
                     <td><?= $member['nama']; ?></td>
                     <td><?= $member['email']; ?></td>
                     <td><?= $member['no_hp']; ?></td>
-                    <td><?= $member['alamat']; ?></td>
                   </tr>
                 <?php } ?>
               </tbody>

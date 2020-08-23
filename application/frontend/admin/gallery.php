@@ -94,6 +94,7 @@ $data_gallery = mysqli_query($koneksi, "SELECT * FROM gallery");
                                     <div class="field">
                                         <label for="">Foto</label>
                                         <input type="file" name="foto" id="">
+                                        <sup style="color:red">*maksimal ukuran gambar adalah 1 MB</sup>
                                     </div>
                                     <button class="ui blue fluid button" name="tambahBarang">Tambah</button>
                                 </div>
@@ -120,6 +121,7 @@ $data_gallery = mysqli_query($koneksi, "SELECT * FROM gallery");
                                         <label for="">Foto</label>
                                         <input type="hidden" name="a" value="<?= $queryData['foto'] ?>">
                                         <input type="file" name="foto" id="" value="<?= $queryData['foto']; ?>">
+                                        <sup style="color:red">*maksimal ukuran gambar adalah 1 MB</sup>
                                     </div>
                                     <button type="submit" class="ui blue fluid button" name="editBarang">Edit</button>
                                 </div>

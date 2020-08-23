@@ -1,6 +1,6 @@
 <?php
 // include file koneksi.php
-include "../koneksi.php";
+include "../config/koneksi.php";
 
 // Variable dari form user
 $username = $_POST["username"];

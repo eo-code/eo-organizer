@@ -22,7 +22,7 @@
     </a>
   </div>
   <div class="btn-fix2">
-    <a href="./signout.php">
+    <a href="../../backend/user/logout.php">
       <div class="circle d-flex justify-content-center align-items-center">
         <i class="fas fa-sign-out-alt"></i>
       </div>

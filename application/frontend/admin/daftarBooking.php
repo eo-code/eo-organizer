@@ -6,10 +6,12 @@ if (!isset($username)) {
   header('location:login.php');
 }
 // Mengambil daftar booking yang masih on Process
-$daftarBooking = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN produk ON booking.id_product=produk.id_produk WHERE booking.Status = 'Book' ");
+$daftarBooking = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN produk ON booking.id_product=produk.id_produk
+LEFT JOIN kategori ON produk.id_kategori=kategori.id_kategori WHERE booking.status = 'Booked' ");
 
 // Mengambil daftar booking yang sudah selesai
-$daftarBookingSelesai = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN produk ON booking.id_product=produk.id_produk WHERE booking.Status = 'SELESAI' ");
+$daftarBookingSelesai = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN produk ON booking.id_product=produk.id_produk
+LEFT JOIN kategori ON produk.id_kategori=kategori.id_kategori WHERE booking.status = 'Finish' ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,8 +70,8 @@ $daftarBookingSelesai = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN 
                   <th>Nama</th>
                   <th>Email</th>
                   <th>No HP</th>
-                  <th>Paket Utama</th>
-                  <th>Paket Tambahan</th>
+                  <th>Nama Produk</th>
+                  <th>Kategori</th>
                   <th>Keterangan</th>
                   <th>Total Harga</th>
                   <th>Status</th>
@@ -88,10 +90,10 @@ $daftarBookingSelesai = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN 
                     <td><?= $booking['email']; ?></td>
                     <td><?= $booking['no_hp']; ?></td>
                     <td><?= $booking['nama_produk']; ?></td>
-                    <td><?= $booking['nama_produk']; ?></td>
-                    <td><?= $booking['keterangan']; ?></td>
+                    <td><?= $booking['kategori']; ?></td>
+                    <td><?= $booking['catatan']; ?></td>
                     <td><?= $booking['total_harga']; ?></td>
-                    <td><?= $booking['Status']; ?></td>
+                    <td><?= $booking['status']; ?></td>
                     <td>
                       <a href="../../backend/admin/booking/selesaikanBooking.php?id=<?= $booking['id_booking']; ?>">
                         <button class="ui blue tiny button">Selesai</button>
@@ -115,8 +117,8 @@ $daftarBookingSelesai = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN 
                   <th>Nama</th>
                   <th>Email</th>
                   <th>No HP</th>
-                  <th>Paket Utama</th>
-                  <th>Paket Tambahan</th>
+                  <th>Nama Produk</th>
+                  <th>Kategori</th>
                   <th>Keterangan</th>
                   <th>Total Harga</th>
                   <th>Status</th>
@@ -135,14 +137,18 @@ $daftarBookingSelesai = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN 
                     <td><?= $bookingSelesai['email']; ?></td>
                     <td><?= $bookingSelesai['no_hp']; ?></td>
                     <td><?= $bookingSelesai['nama_produk']; ?></td>
-                    <td><?= $bookingSelesai['nama_produk']; ?></td>
-                    <td><?= $bookingSelesai['keterangan']; ?></td>
+                    <td><?= $bookingSelesai['kategori']; ?></td>
+                    <td><?= $bookingSelesai['catatan']; ?></td>
                     <td><?= $bookingSelesai['total_harga']; ?></td>
-                    <td><?= $bookingSelesai['Status']; ?></td>
+                    <td><?= $bookingSelesai['status']; ?></td>
                     <td>
-                      <a href="../../backend/admin/booking/hapusBooking.php?id=<?= $bookingSelesai['id_booking']; ?>">
-                        <button class="ui blue tiny button">Hapus</button>
-                      </a>
+                      <?php if (mysqli_num_rows($daftarBookingSelesai) == 1) { ?>
+                        <div class="ui red tiny button mt-20 button btn-warning" tabindex="0">Hapus</div>
+                      <?php } else { ?>
+                        <a href="../../backend/admin/booking/hapusBooking.php?id=<?= $bookingSelesai['id_booking']; ?>">
+                          <button class="ui blue tiny button">Hapus</button>
+                        </a>
+                      <?php } ?>
                     </td>
                   </tr>
                 <?php } ?>
@@ -152,7 +158,16 @@ $daftarBookingSelesai = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN 
         </div>
       </div>
     </div>
-
+    <div class="ui small modal warning">
+      <div class="header" style="text-align: center; color:red;">Perhatian!!!</div>
+      <div class="content">
+        <div class="ui form">
+          <div class="field" style="text-align: center;">
+            <h3>Booking tidak dapat di hapus</h3>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Booking Yang Selesai -->
     <!-- Booking Yang Selesai -->
 
@@ -163,7 +178,10 @@ $daftarBookingSelesai = mysqli_query($koneksi, "SELECT * FROM booking LEFT JOIN 
           context: $('.bottom.segment')
         })
         .sidebar('attach events', '.menu .item');
-
+      $('.btn-warning').on('click', function() {
+        $('.ui.modal.small.warning')
+          .modal("show");
+      })
       $('.ui.accordion')
         .accordion();
     </script>

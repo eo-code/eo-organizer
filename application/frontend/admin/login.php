@@ -39,7 +39,7 @@
                             <label for="">password salah</label>
                         </div>
                     <?php } ?>
-                    <button class="ui blue fluid button" type="submit">Log In</button>
+                    <button class="ui fluid button" type="submit" style="background: #8567a9; color: #FFF;">Log In</button>
                 </form>
             </div>
         </div>

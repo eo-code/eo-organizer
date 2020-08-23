@@ -6,9 +6,9 @@ if (!isset($username)) {
 }
 $data_produk = mysqli_query($koneksi, "SELECT * FROM produk LEFT JOIN kategori ON produk.id_kategori=kategori.id_kategori");
 $a = array();
-$cek = mysqli_query($koneksi, ("SELECT * FROM produk"));
+$cek = mysqli_query($koneksi, ("SELECT * FROM booking"));
 while ($g = mysqli_fetch_array($cek)) {
-  array_push($a, $g['id_produk']);
+  array_push($a, $g['id_product']);
 }
 ?>
 <!DOCTYPE html>
@@ -131,6 +131,7 @@ while ($g = mysqli_fetch_array($cek)) {
                   <div class="field">
                     <label for="">Gambar</label>
                     <input type="file" name="gambar" id="">
+                    <sup style="color:red">*maksimal ukuran gambar adalah 1 MB</sup>
                   </div>
                   <button class="ui blue fluid button" name="tambahBarang">Tambah</button>
                 </div>
@@ -191,6 +192,7 @@ while ($g = mysqli_fetch_array($cek)) {
                     <label for="">Gambar</label>
                     <input type="hidden" name="a" value="<?= $queryData['gambar'] ?>">
                     <input type="file" name="gambar">
+                    <sup style="color:red">*maksimal ukuran gambar adalah 1 MB</sup>
                   </div>
                   <button type="submit" class="ui blue fluid button" name="editBarang">Edit</button>
                 </div>

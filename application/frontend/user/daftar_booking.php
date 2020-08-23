@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="../style/./style.css">
   <link rel="stylesheet" href="../style/./daftar_booking.css">
   <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.css">
-  <script src="https://kit.fontawesome.com/e6f4490556.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../../assets/icon/css/all.css">
+  <script src=""></script>
   <title>Daftar Booking</title>
 </head>
 
@@ -22,7 +23,7 @@
     </a>
   </div>
   <div class="btn-fix2">
-    <a href="./signout.php">
+    <a href="../../backend/user/logout.php">
       <div class="circle d-flex justify-content-center align-items-center">
         <i class="fas fa-sign-out-alt"></i>
       </div>

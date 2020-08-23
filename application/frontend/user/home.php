@@ -10,7 +10,7 @@ function url()
   return $protocol . "://" . $_SERVER['HTTP_HOST'];
 }
 
-include "../../backend/koneksi.php";
+include "../../backend/config/koneksi.php";
 
 if (isset($_COOKIE["email"]) && $_COOKIE["login"] == "sudah_login") {
 
@@ -32,7 +32,7 @@ if (isset($_COOKIE["email"]) && $_COOKIE["login"] == "sudah_login") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style/./style.css">
   <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.css">
-  <script src="https://kit.fontawesome.com/e6f4490556.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../../assets/icon/css/all.css">
   <title>Home</title>
 
 </head>
@@ -50,7 +50,7 @@ if (isset($_COOKIE["email"]) && $_COOKIE["login"] == "sudah_login") {
     </a>
   </div>
   <div class="btn-fix2">
-    <a href="./signout.php">
+    <a href="../../backend/user/logout.php">
       <div class="circle d-flex justify-content-center align-items-center">
         <i class="fas fa-sign-out-alt"></i>
       </div>

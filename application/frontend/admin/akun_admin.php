@@ -94,6 +94,7 @@ $d = mysqli_fetch_array($data_akun)
                         <label for="">Change Profil Picture</label>
                         <input type="hidden" name="picture_sebelumnya" value="<?= $d['foto'] ?>">
                         <input type="file" name="picture" id="" placeholder="Ganti Foto Profil">
+                        <sup style="color:red">*maksimal ukuran gambar adalah 1 MB</sup>
                       </div>
                       <button class="ui blue fluid button">Ubah</button>
                     </form>
@@ -134,6 +135,7 @@ $d = mysqli_fetch_array($data_akun)
                 <div class="field">
                   <label for="">Gambar</label>
                   <input type="file" name="gambar" id="">
+                  <sup style="color:red">*maksimal ukuran gambar adalah 1 MB</sup>
                 </div>
                 <button class="ui blue fluid button" name="tambahBarang">Tambah</button>
               </div>
